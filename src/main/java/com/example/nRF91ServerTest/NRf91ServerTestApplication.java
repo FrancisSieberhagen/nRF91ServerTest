@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @SpringBootApplication
 public class NRf91ServerTestApplication {
@@ -20,7 +22,14 @@ public class NRf91ServerTestApplication {
 class Action {
 
     @RequestMapping("/")
-    String index() {
-        return "{\"ActionName\":\"BSD Test\",\"LED1\":true,\"LED2\":true}";
+
+    Map<String, Object> index() {
+
+        Map<String, Object> rtn = new LinkedHashMap<>();
+
+        rtn.put("ActionName", true);
+        rtn.put("LED1", true);
+        rtn.put("LED2", false);
+        return rtn;
     }
 }
