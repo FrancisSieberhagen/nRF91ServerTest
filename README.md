@@ -8,4 +8,4 @@ Spring Boot server for IoT nRF91
 
 ### Build 
     $ ./gradlew build
-    $ java -jar build/libs/nRF91ServerTest-0.0.1-SNAPSHOT.jar 
+    $ java -jar build/libs/nRF91ServerTest-0.0.1-SNAPSHOT.jar --server.port=42501
