@@ -28,7 +28,7 @@ class Action {
 
         Map<String, Object> rtn = new LinkedHashMap<>();
 
-        rtn.put("ActionName", true);
+        rtn.put("ActionName", "BSDTest");
         rtn.put("LED1", toggle);
         rtn.put("LED2", !toggle);
         toggle = !toggle;
