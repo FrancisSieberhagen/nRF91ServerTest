@@ -21,15 +21,17 @@ public class NRf91ServerTestApplication {
 @RestController
 class Action {
 
-    @RequestMapping("/")
+    boolean toggle = true;
 
+    @RequestMapping("/")
     Map<String, Object> index() {
 
         Map<String, Object> rtn = new LinkedHashMap<>();
 
         rtn.put("ActionName", true);
-        rtn.put("LED1", true);
-        rtn.put("LED2", false);
+        rtn.put("LED1", toggle);
+        rtn.put("LED2", !toggle);
+        toggle = !toggle;
         return rtn;
     }
 }
