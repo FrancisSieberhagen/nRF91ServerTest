@@ -1,0 +1,13 @@
+server:
+  port: 42512
+  ssl:
+    enabled: true
+    key-store: 'classpath:ssl/ssl-keystore.jks'
+    key-store-password: 'changeit'
+    key-store-type: 'JKS'
+    trust-store: 'classpath:ssl/sbsatrustanchor.jks'
+    trust-store-password: 'changeit'
+    trust-store-type: 'JKS'
+
+http:
+  port: 42511
