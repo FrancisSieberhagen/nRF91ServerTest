@@ -14,8 +14,6 @@ public class ApplicationConfiguration {
 
     @Value("${server.ssl.key-store-password}")
     private String keyStorePassword;
-    @Value("${server.ssl.trust-store-password}")
-    private String trustStorePassword;
 
     @Bean
     public ServletWebServerFactory servletContainer(@Value("${http.port}") int httpPort) {
@@ -28,9 +26,7 @@ public class ApplicationConfiguration {
 
     @PostConstruct
     private void setProperty() {
-        System.setProperty("javax.net.ssl.trustStore", "src/main/resources/ssl/sbsatrustanchor.jks");
-        System.setProperty("javax.net.ssl.trustStorePassword", keyStorePassword);
-        System.setProperty("javax.net.ssl.keyStore", "src/main/resources/ssl/ssl-keystore.jks");
-        System.setProperty("javax.net.ssl.keyStorePassword", trustStorePassword);
+        System.setProperty("javax.net.ssl.keyStore", "src/main/resources/ssl/keystore.jks");
+        System.setProperty("javax.net.ssl.keyStorePassword", keyStorePassword);
     }
 }
