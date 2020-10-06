@@ -33,7 +33,7 @@ Spring Boot server for IoT nRF91
     
 ## HTTP
     curl test 
-    $ curl https://139.162.251.115:42511
+    $ curl http://139.162.251.115:42511
     {"ActionName":"BSDTest","LED1":false,"LED2":true}
     
 ## Generating self-signed SSL certificate
