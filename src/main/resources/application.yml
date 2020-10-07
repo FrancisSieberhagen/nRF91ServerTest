@@ -1,5 +1,5 @@
 server:
-  port: 42512
+  port: 42513
   ssl:
     enabled: true
     key-store: 'classpath:ssl/keystore.jks'
@@ -7,4 +7,4 @@ server:
     key-store-type: 'PKCS12'
 
 http:
-  port: 42511
+  port: 42512

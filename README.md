@@ -21,8 +21,8 @@ Spring Boot server for IoT nRF91
 ### HTTP and HTTPS
     Server context path '/'
     Server supports both HTTP and HTTPS
-    # HTTP -> port : 42511
-    # HTTPS -> port : 42512
+    # HTTP -> port : 42512
+    # HTTPS -> port : 42513
 
 ### Curl Client Test
 
