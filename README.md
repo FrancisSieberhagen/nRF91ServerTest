@@ -28,12 +28,12 @@ Spring Boot server for IoT nRF91
 
 ## HTTPS
     curl test 
-    $ curl --cacert nrftestserver.cer https://139.162.251.115:42512
+    $ curl --cacert nrftestserver.cer https://139.162.251.115:42513
     {"ActionName":"BSDTest","LED1":false,"LED2":true}
     
 ## HTTP
     curl test 
-    $ curl http://139.162.251.115:42511
+    $ curl http://139.162.251.115:42512
     {"ActionName":"BSDTest","LED1":false,"LED2":true}
     
 ## Generating self-signed SSL certificate
