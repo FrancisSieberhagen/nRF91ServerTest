@@ -18,11 +18,12 @@ Spring Boot server for IoT nRF91
 ### Run/restart the server app remotely
     $ ssh root@139.162.251.115 "killall -9 java; cd /root/dev/nRF91ServerTest; nohup java -jar nRF91ServerTest-0.0.1-SNAPSHOT.jar"    
 
-### HTTP and HTTPS
+### Endpoints
     Server context path '/'
-    Server supports both HTTP and HTTPS
+    Server supports HTTP, HTTPS, UDP
     # HTTP -> port : 42512
     # HTTPS -> port : 42513
+    # UDP -> port : 11111
 
 ### Curl Client Test
 
@@ -35,7 +36,17 @@ Spring Boot server for IoT nRF91
     curl test 
     $ curl http://139.162.251.115:42512
     {"ActionName":"BSDTest","LED1":false,"LED2":true}
-    
+
+## UDP
+    UDP socket running on port 11111
+
+    You can make use of https://github.com/FrancisSieberhagen/nRF91UDPTest NRF application to test out this UDP endpoint.
+    Remember to update the nRF91UDPTest application ip and port to use 139.162.251.115:11111
+
+    On successful connection, the body [{"ActionName":"BSD Test","LED1":false,"LED2":true}] should be returned.
+
+![alt text](https://github.com/FrancisSieberhagen/nRF91ServerTest/blob/master/img.png)
+
 ## Generating self-signed SSL certificate
 
 Use the Java ```keytool``` command to generate the self signed cert keystore.jks like this:
