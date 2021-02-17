@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-int main(void)
+int main(int argc, char *argv[] )
 {
   int sock;
   struct sockaddr_in sa;
@@ -20,7 +20,11 @@ int main(void)
   char buffer[200];
 
   fromlen = sizeof sa;
-  strcpy(buffer, "{\"ActionName\":\"BSD Test\",\"LED1\":false,\"LED2\":true}");
+  if ( argc == 2 ) {
+      sprintf(buffer, "{\"ActionName\":\"BSD Test\",\"LED1\":false,\"LED2\":%s}", argv[1]);
+   } else {
+      strcpy(buffer, "{\"ActionName\":\"BSD Test\",\"LED1\":false,\"LED2\":true}");   
+   }
  
   /* create an Internet, datagram, socket using UDP */
   sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -49,6 +53,8 @@ int main(void)
     printf("Error sending packet: %s\n", strerror(errno));
     exit(EXIT_FAILURE);
   }
+
+  memset(buffer, '\0', strlen(buffer));
 
   recsize = recvfrom(sock, (void*)buffer, sizeof buffer, 0, (struct sockaddr*)&sa, &fromlen);
   if (recsize < 0) {
